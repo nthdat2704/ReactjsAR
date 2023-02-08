@@ -7,7 +7,7 @@ function App() {
     setOpen(!open);
   };
   const handleTakePhoto = (data) => {
-    console.log("kaka", data);
+    console.log("kkkk", data);
   };
 
   return (
