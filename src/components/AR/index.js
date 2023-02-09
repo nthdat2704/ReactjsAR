@@ -38,7 +38,7 @@ const AR = ({ handleTakePhoto }) => {
       myLocation.lat,
       myLocation.long
     );
-    if (metter < 3) {
+    if (metter < 12) {
       alert(`done...${metter}`);
     } else {
       alert(`chua chinh xac...${metter}`);
