@@ -51,7 +51,7 @@ const AR = ({ handleTakePhoto }) => {
     function success(pos) {
       const crd = pos.coords;
       setMyLocation({
-        lat: pos.coords.latitude,
+        lat: pos.coords.latitude + Math.random(),
         long: pos.coords.longitude,
       });
     }
@@ -70,6 +70,8 @@ const AR = ({ handleTakePhoto }) => {
 
   return (
     <div id="AR">
+      <h2 className="myloca">lat:{myLocation.lat}</h2>
+      <h2 className="myloca">long:{myLocation.long}</h2>
       <a-scene
         id="scene"
         cursor="rayOrigin: mouse"
@@ -141,12 +143,11 @@ const AR = ({ handleTakePhoto }) => {
           arjs="sourceType: webcam; debugUIEnabled: false;"
         >
           <h1 onClick={handleClickMe}>kakakkakakakak</h1>
-          <h2 className="myloca">lat:{myLocation.lat}</h2>
-          <h2 className="myloca">long:{myLocation.long}</h2>
         </a-entity>
         <a-camera
-          gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
-          // gps-camera
+          // gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
+          gps-camera
+          // gps-camera={`simulateLatitude: ${myLocation.lat}; simulateLongitude:  ${myLocation.long};`}
           rotation-reader
         ></a-camera>
       </a-scene>
