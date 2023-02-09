@@ -22,3 +22,12 @@ h1 {
 .myloca {
     color: blue;
 }
+.clickok {
+    padding: 20px;
+    color: chartreuse;
+    background-color: violet;
+    position: fixed;
+    bottom: 50px;
+    left: 50%;
+    z-index: 999999999999999999999999999999;
+}
