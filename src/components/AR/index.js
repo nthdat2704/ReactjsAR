@@ -127,12 +127,6 @@ const AR = ({ handleTakePhoto }) => {
           scale="10 10 10"
           gps-entity-place="latitude: 10.765633826132591; longitude: 106.68534122401981;"
         ></a-image>
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.7673448148506; longitude: 106.68676815921573;"
-        ></a-image>
         <a-entity
           id="menu"
           htmlembed="ppu:60"
