@@ -146,8 +146,8 @@ const AR = ({ handleTakePhoto }) => {
         </a-entity>
         <a-camera
           // gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
-          gps-camera
-          // gps-camera={`simulateLatitude: ${myLocation.lat}; simulateLongitude:  ${myLocation.long};`}
+          // gps-camera
+          gps-camera={`simulateLatitude: ${myLocation.lat}; simulateLongitude:  ${myLocation.long};`}
           rotation-reader
         ></a-camera>
       </a-scene>
