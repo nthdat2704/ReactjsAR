@@ -139,8 +139,8 @@ const AR = ({ handleTakePhoto }) => {
           <h1 onClick={handleClickMe}>kakakkakakakak</h1>
         </a-entity>
         <a-camera
-          // gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
-          gps-camera
+          gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
+          // gps-camera
           rotation-reader
         ></a-camera>
       </a-scene>
