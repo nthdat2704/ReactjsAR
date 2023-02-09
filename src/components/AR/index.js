@@ -11,6 +11,10 @@ let imageLocation = {
 
 var scene = document.createElement("iframe");
 const AR = ({ handleTakePhoto }) => {
+  const [myLocation, setMyLocation] = useState({
+    lat: 0,
+    long: 0,
+  });
   function measure(lat1, lon1, lat2, lon2) {
     var R = 6378.137;
     var dLat = (lat2 * Math.PI) / 180 - (lat1 * Math.PI) / 180;
@@ -35,34 +39,34 @@ const AR = ({ handleTakePhoto }) => {
   const handleClickMe = () => {
     alert("cliicked ...");
   };
-  // console.log('mylocation', myLocation);
+  console.log("mylocation", myLocation);
   // console.log('distance', metter);
-  // useEffect(() => {
-  //   const options = {
-  //     enableHighAccuracy: true,
-  //     timeout: 5000,
-  //     maximumAge: 0,
-  //   };
+  useEffect(() => {
+    const options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
 
-  //   function success(pos) {
-  //     const crd = pos.coords;
-  //     setMyLocation({
-  //       lat: 10.7673448148506,
-  //       long: 106.68676815921573,
-  //     });
-  //   }
+    function success(pos) {
+      const crd = pos.coords;
+      setMyLocation({
+        lat: pos.coords.latitude,
+        long: pos.coords.longitude,
+      });
+    }
 
-  //   function error(err) {
-  //     console.warn(`ERROR(${err.code}): ${err.message}`);
-  //   }
+    function error(err) {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+    }
 
-  //   const intervalId = setInterval(() => {
-  //     navigator.geolocation.getCurrentPosition(success, error, options);
-  //   }, 1000);
-  //   return () => {
-  //     clearInterval(intervalId);
-  //   };
-  // }, []);
+    const intervalId = setInterval(() => {
+      navigator.geolocation.getCurrentPosition(success, error, options);
+    }, 1000);
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, []);
 
   return (
     <div id="AR">
@@ -137,6 +141,8 @@ const AR = ({ handleTakePhoto }) => {
           arjs="sourceType: webcam; debugUIEnabled: false;"
         >
           <h1 onClick={handleClickMe}>kakakkakakakak</h1>
+          <h2 className="myloca">lat:{myLocation.lat}</h2>
+          <h2 className="myloca">long:{myLocation.long}</h2>
         </a-entity>
         <a-camera
           gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
