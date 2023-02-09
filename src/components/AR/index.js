@@ -5,8 +5,8 @@ import Image from "./assets/asset.jpeg";
 // import "aframe-react";
 require("aframe-htmlembed-component");
 let imageLocation = {
-  lat: 10.792069407607704,
-  long: 106.65632318705322,
+  lat: 10.7673448148506,
+  long: 106.68676815921573,
 };
 
 var scene = document.createElement("iframe");
