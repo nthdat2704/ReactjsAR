@@ -51,7 +51,7 @@ const AR = ({ handleTakePhoto }) => {
     function success(pos) {
       const crd = pos.coords;
       setMyLocation({
-        lat: pos.coords.latitude + Math.random(),
+        lat: pos.coords.latitude,
         long: pos.coords.longitude,
       });
     }
