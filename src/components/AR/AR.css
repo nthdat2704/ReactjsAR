@@ -4,5 +4,18 @@
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    
+}
+#AR {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999999999999999999;
+}
+h1 {
+    color: red;
+    background-color: yellow;
+    padding: 300px;
+    /* z-index: 9999999999999999999999999999999999; */
 }
