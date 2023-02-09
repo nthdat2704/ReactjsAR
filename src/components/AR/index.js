@@ -5,8 +5,8 @@ import Image from "./assets/asset.jpeg";
 // import "aframe-react";
 require("aframe-htmlembed-component");
 let imageLocation = {
-  lat: 10.7673448148506,
-  long: 106.68676815921573,
+  lat: 10.766106,
+  long: 106.686038,
 };
 
 var scene = document.createElement("iframe");
@@ -90,55 +90,7 @@ const AR = ({ handleTakePhoto }) => {
           src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
           look-at="[gps-camera]"
           scale="10 10 10"
-          gps-entity-place="latitude: 10.766166099909617; longitude: 106.68597812357707;"
-        ></a-image>
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.766332429562654; longitude: 106.68615918603793;"
-        ></a-image>
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.766190139820953; longitude: 106.68616455045596;"
-        ></a-image>
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.766026770034669; longitude: 106.68612699952975;"
-        ></a-image>
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.765947720106265; longitude: 106.6859553381528;"
-        ></a-image>
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.766638088780597; longitude: 106.68559055772677;"
-        ></a-image>
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.766427838417393; longitude: 106.6851051896265;"
-        ></a-image>
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.765946512291654; longitude: 106.6848906129053;"
-        ></a-image>
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.7673448148506; longitude: 106.68676815921573;"
+          gps-entity-place="latitude: 10.766106; longitude: 106.686038;"
         ></a-image>
         <a-entity
           id="menu"
