@@ -11,10 +11,6 @@ let imageLocation = {
 
 var scene = document.createElement("iframe");
 const AR = ({ handleTakePhoto }) => {
-  const [myLocation, setMyLocation] = useState({
-    lat: 0,
-    long: 0,
-  });
   function measure(lat1, lon1, lat2, lon2) {
     var R = 6378.137;
     var dLat = (lat2 * Math.PI) / 180 - (lat1 * Math.PI) / 180;
@@ -31,10 +27,14 @@ const AR = ({ handleTakePhoto }) => {
   }
   let metter = measure(
     imageLocation.lat,
-    imageLocation.long,
-    myLocation.lat,
-    myLocation.long
+    imageLocation.long
+    // myLocation.lat,
+    // myLocation.long
   );
+  // console.log("sss", myLocation);
+  const handleClickMe = () => {
+    alert("cliicked ...");
+  };
   // console.log('mylocation', myLocation);
   // console.log('distance', metter);
   // useEffect(() => {
@@ -47,8 +47,8 @@ const AR = ({ handleTakePhoto }) => {
   //   function success(pos) {
   //     const crd = pos.coords;
   //     setMyLocation({
-  //       lat: 10.792069407607704,
-  //       long: 106.65632318705322,
+  //       lat: 10.7673448148506,
+  //       long: 106.68676815921573,
   //     });
   //   }
 
@@ -71,7 +71,9 @@ const AR = ({ handleTakePhoto }) => {
         cursor="rayOrigin: mouse"
         vr-mode-ui={`enabled: true`}
         look-controls
+        gps-camera-debug
         embedded
+        arjs="sourceType: webcam; debugUIEnabled: false;"
       >
         <a-image
           src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
@@ -134,10 +136,11 @@ const AR = ({ handleTakePhoto }) => {
           rotation="0 45 0"
           arjs="sourceType: webcam; debugUIEnabled: false;"
         >
-          <h1>kakakkakakakak</h1>
+          <h1 onClick={handleClickMe}>kakakkakakakak</h1>
         </a-entity>
         <a-camera
-          gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
+          // gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
+          gps-camera
           rotation-reader
         ></a-camera>
       </a-scene>
