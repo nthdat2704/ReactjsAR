@@ -86,12 +86,6 @@ const AR = ({ handleTakePhoto }) => {
         embedded
         arjs="sourceType: webcam; debugUIEnabled: false;"
       >
-        <a-image
-          src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
-          look-at="[gps-camera]"
-          scale="10 10 10"
-          gps-entity-place="latitude: 10.792050; longitude: 106.656225;"
-        ></a-image>
         <a-entity
           id="menu"
           htmlembed="ppu:60"
