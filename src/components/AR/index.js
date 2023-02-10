@@ -5,8 +5,8 @@ import Image from "./assets/asset.jpeg";
 // import "aframe-react";
 require("aframe-htmlembed-component");
 let imageLocation = {
-  lat: 10.766106,
-  long: 106.686038,
+  lat: 10.792050,
+  long: 106.656225,
 };
 
 var scene = document.createElement("iframe");
@@ -90,13 +90,15 @@ const AR = ({ handleTakePhoto }) => {
           src="https://www.shutterstock.com/image-vector/pikachu-vector-art-illustration-on-260nw-2163481879.jpg"
           look-at="[gps-camera]"
           scale="10 10 10"
-          gps-entity-place="latitude: 10.766106; longitude: 106.686038;"
+          gps-entity-place="latitude: 10.792050; longitude: 106.656225;"
         ></a-image>
         <a-entity
           id="menu"
           htmlembed="ppu:60"
           position="-3 2.5 -4.476"
           rotation="0 45 0"
+          look-at="[gps-camera]"
+          gps-entity-place="latitude: 10.792050; longitude: 106.656225;"
           arjs="sourceType: webcam; debugUIEnabled: false;"
         >
           <h1 onClick={handleClickMe}>kakakkakakakak</h1>
