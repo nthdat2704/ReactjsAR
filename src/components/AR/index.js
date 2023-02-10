@@ -92,7 +92,7 @@ const AR = ({ handleTakePhoto }) => {
           position="-3 2.5 -4.476"
           rotation="0 45 0"
           look-at="[gps-camera]"
-          gps-entity-place="latitude: 10.792050; longitude: 106.656225;"
+          gps-entity-place="latitude: 10.791957265220125; longitude: 106.6552123334259;"
           arjs="sourceType: webcam; debugUIEnabled: false;"
         >
           <h1 onClick={handleClickMe}>kakakkakakakak</h1>
