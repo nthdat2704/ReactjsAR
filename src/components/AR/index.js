@@ -106,7 +106,7 @@ const AR = ({ handleTakePhoto }) => {
           gps-entity-place="latitude: 10.791667440353601; longitude: 106.65613501332702;"
           arjs="sourceType: webcam; debugUIEnabled: false;"
         >
-          <h1 onClick={handleClickMe}>day ne</h1>
+          <h1 onClick={handleClickMe}>day ne quan nc</h1>
         </a-entity>
         <a-camera
           // gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
