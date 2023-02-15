@@ -19,8 +19,8 @@ const AR = ({ handleTakePhoto }) => {
   const refScale = useRef();
   const refRotation = useRef();
   const [myControl, setMyControl] = useState({
-    lat: "10.76630080962586",
-    long: "106.68534379449738",
+    lat: "10.766216489778198",
+    long: "106.68538670984164",
     position: "0 0 -10",
     toposition: "0 3 -10",
     scale: "1 1 1",
@@ -162,7 +162,7 @@ const AR = ({ handleTakePhoto }) => {
         ></a-sphere>
         <a-camera
           // gps-camera
-          gps-camera
+          gps-camera={`simulateLatitude: ${myControl.lat}; simulateLongitude: ${myControl.long} maxDistance: 15`}
           rotation-reader
         ></a-camera>
       </a-scene>
