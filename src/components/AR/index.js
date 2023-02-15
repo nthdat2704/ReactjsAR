@@ -1,13 +1,10 @@
 import "./AR.css";
 import React, { useEffect, useState } from "react";
 import Image from "./assets/asset.jpeg";
+import { useRef } from "react";
 // import "aframe";
 // import "aframe-react";
 require("aframe-htmlembed-component");
-let imageLocation = {
-  lat: 10.792050,
-  long: 106.656225,
-};
 
 var scene = document.createElement("iframe");
 const AR = ({ handleTakePhoto }) => {
@@ -15,6 +12,20 @@ const AR = ({ handleTakePhoto }) => {
     lat: 0,
     long: 0,
   });
+  const refLat = useRef();
+  const refLong = useRef();
+  const refPosition = useRef();
+  const refScale = useRef();
+  const refRotation = useRef();
+  const [now, setNow] = useState(0);
+  const [myControl, setMyControl] = useState({
+    lat: "10.76609527995583",
+    long: "106.68576221910372",
+    position: "0 0 0",
+    scale: "0 0 0",
+    rotation: "0 0 0",
+  });
+
   function measure(lat1, lon1, lat2, lon2) {
     var R = 6378.137;
     var dLat = (lat2 * Math.PI) / 180 - (lat1 * Math.PI) / 180;
@@ -31,21 +42,21 @@ const AR = ({ handleTakePhoto }) => {
   }
 
   // console.log("sss", myLocation);
-  const handleClickMe = () => {
-    let metter = measure(
-      imageLocation.lat,
-      imageLocation.long,
-      myLocation.lat,
-      myLocation.long
-    );
-    if (metter < 12) {
-      alert(`done...${metter}`);
-    } else {
-      alert(`chua chinh xac...${metter}`);
-    }
-  };
-  console.log("mylocation", myLocation);
   // console.log('distance', metter);
+  const handleGetMyControl = () => {
+    let lat = refLat.current.value;
+    let long = refLong.current.value;
+    let position = refPosition.current.value;
+    let scale = refScale.current.value;
+    let rotation = refRotation.current.value;
+    setMyControl({
+      lat: lat,
+      long: long,
+      position: position,
+      scale: scale,
+      rotation: rotation,
+    });
+  };
   useEffect(() => {
     const options = {
       enableHighAccuracy: true,
@@ -55,10 +66,17 @@ const AR = ({ handleTakePhoto }) => {
 
     function success(pos) {
       const crd = pos.coords;
+      let metter = measure(
+        myControl.lat,
+        myControl.long,
+        myLocation.lat,
+        myLocation.long
+      );
       setMyLocation({
         lat: pos.coords.latitude,
         long: pos.coords.longitude,
       });
+      setNow(metter);
     }
 
     function error(err) {
@@ -75,49 +93,66 @@ const AR = ({ handleTakePhoto }) => {
 
   return (
     <div id="AR">
-      <h2 className="myloca">lat:{myLocation.lat}</h2>
-      <h2 className="myloca">long:{myLocation.long}</h2>
+      <div className="mycontrol">
+        <h2 className="myloca">now:{now}</h2>
+        <div className="block-input">
+          <span>lat:</span>
+          <input ref={refLat} type="text" defaultValue={myControl.lat} />
+          {myControl.lat}
+        </div>
+        <div className="block-input">
+          <span>long:</span>
+          <input ref={refLong} type="text" defaultValue={myControl.long} />
+          {myControl.long}
+        </div>
+        <div className="block-input">
+          <span>posiition:</span>
+          <input
+            ref={refPosition}
+            type="text"
+            defaultValue={myControl.position}
+          />
+          {myControl.position}
+        </div>
+        <div className="block-input">
+          <span>scale:</span>
+          <input ref={refScale} type="text" defaultValue={myControl.scale} />
+          {myControl.scale}
+        </div>
+        <div className="block-input">
+          <span>rotation:</span>
+          <input
+            ref={refRotation}
+            type="text"
+            defaultValue={myControl.rotation}
+          />
+          {myControl.rotation}
+        </div>
+        <button onClick={handleGetMyControl}>change</button>
+      </div>
       <a-scene
         id="scene"
         cursor="rayOrigin: mouse"
         vr-mode-ui={`enabled: true`}
-        look-controls
-        gps-camera-debug
         embedded
         arjs="sourceType: webcam; debugUIEnabled: false;"
       >
-        <a-entity
-          id="menu"
-          htmlembed="ppu:60"
-          position="-3 2.5 -4.476"
-          rotation="0 45 0"
+        <a-sphere
+          position={myControl.position}
+          radius="0.5"
+          scale={myControl.scale}
+          rotation={myControl.rotation}
+          gps-entity-place={`latitude: ${myControl.lat}; longitude: ${myControl.long};`}
           look-at="[gps-camera]"
-          gps-entity-place="latitude: 10.791957265220125; longitude: 106.6552123334259;"
+          color="#EF2D5E"
           arjs="sourceType: webcam; debugUIEnabled: false;"
-        >
-          <h1 onClick={handleClickMe}>kakakkakakakak</h1>
-        </a-entity>
-        <a-entity
-          id="menu"
-          htmlembed="ppu:60"
-          position="-3 2.5 -4.476"
-          rotation="0 45 0"
-          look-at="[gps-camera]"
-          gps-entity-place="latitude: 10.791667440353601; longitude: 106.65613501332702;"
-          arjs="sourceType: webcam; debugUIEnabled: false;"
-        >
-          <h1 onClick={handleClickMe}>day ne quan nc</h1>
-        </a-entity>
+        ></a-sphere>
         <a-camera
-          // gps-camera="simulateLatitude: 10.7673448148506; simulateLongitude: 106.68676815921573;"
           // gps-camera
           gps-camera={`simulateLatitude: ${myLocation.lat}; simulateLongitude:  ${myLocation.long};`}
           rotation-reader
         ></a-camera>
       </a-scene>
-      <button className="clickok" onClick={handleClickMe}>
-        Click ok
-      </button>
     </div>
   );
 };
