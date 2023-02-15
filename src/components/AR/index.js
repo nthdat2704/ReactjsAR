@@ -15,13 +15,15 @@ const AR = ({ handleTakePhoto }) => {
   const refLat = useRef();
   const refLong = useRef();
   const refPosition = useRef();
+  const refToPosition = useRef();
   const refScale = useRef();
   const refRotation = useRef();
   const [myControl, setMyControl] = useState({
     lat: "10.76609527995583",
     long: "106.68576221910372",
-    position: "0 0 0",
-    scale: "0 0 0",
+    position: "0 0 -10",
+    toposition: "0 3 -10",
+    scale: "1 1 1",
     rotation: "0 0 0",
   });
 
@@ -46,12 +48,14 @@ const AR = ({ handleTakePhoto }) => {
     let lat = refLat.current.value;
     let long = refLong.current.value;
     let position = refPosition.current.value;
+    let toposition = refToPosition.current.value;
     let scale = refScale.current.value;
     let rotation = refRotation.current.value;
     setMyControl({
       lat: lat,
       long: long,
       position: position,
+      toposition: toposition,
       scale: scale,
       rotation: rotation,
     });
@@ -114,6 +118,15 @@ const AR = ({ handleTakePhoto }) => {
           {myControl.position}
         </div>
         <div className="block-input">
+          <span>Toposiition:</span>
+          <input
+            ref={refToPosition}
+            type="text"
+            defaultValue={myControl.toposition}
+          />
+          {myControl.toposition}
+        </div>
+        <div className="block-input">
           <span>scale:</span>
           <input ref={refScale} type="text" defaultValue={myControl.scale} />
           {myControl.scale}
@@ -145,10 +158,11 @@ const AR = ({ handleTakePhoto }) => {
           look-at="[gps-camera]"
           color="#EF2D5E"
           arjs="sourceType: webcam; debugUIEnabled: false;"
+          animation={`property: position; easing: easeInOutQuad; dir: alternate; dur: 1000; to: ${myControl.toposition}; loop: true`}
         ></a-sphere>
         <a-camera
           // gps-camera
-          gps-camera={`simulateLatitude: ${myLocation.lat}; simulateLongitude:  ${myLocation.long};`}
+          gps-camera={`simulateLatitude: 10.766074199981741; simulateLongitude: 106.6858480497922;`}
           rotation-reader
         ></a-camera>
       </a-scene>
