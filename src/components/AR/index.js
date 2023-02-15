@@ -17,7 +17,6 @@ const AR = ({ handleTakePhoto }) => {
   const refPosition = useRef();
   const refScale = useRef();
   const refRotation = useRef();
-  const [now, setNow] = useState(0);
   const [myControl, setMyControl] = useState({
     lat: "10.76609527995583",
     long: "106.68576221910372",
@@ -66,19 +65,11 @@ const AR = ({ handleTakePhoto }) => {
 
     function success(pos) {
       const crd = pos.coords;
-      let metter = measure(
-        myControl.lat,
-        myControl.long,
-        myLocation.lat,
-        myLocation.long
-      );
       setMyLocation({
         lat: pos.coords.latitude,
         long: pos.coords.longitude,
       });
-      setNow(metter);
     }
-
     function error(err) {
       console.warn(`ERROR(${err.code}): ${err.message}`);
     }
@@ -94,7 +85,15 @@ const AR = ({ handleTakePhoto }) => {
   return (
     <div id="AR">
       <div className="mycontrol">
-        <h2 className="myloca">now:{now}</h2>
+        <h2 className="myloca">
+          now:
+          {measure(
+            myControl.lat,
+            myControl.long,
+            myLocation.lat,
+            myLocation.long
+          )}
+        </h2>
         <div className="block-input">
           <span>lat:</span>
           <input ref={refLat} type="text" defaultValue={myControl.lat} />
