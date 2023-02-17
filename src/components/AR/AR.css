@@ -1,17 +1,18 @@
 .takephoto {
     position: fixed;
-    z-index: 9999;
+    z-index: 3;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
 }
+
 #AR {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 999999999999999999;
+    z-index: 2;
 }
 h1 {
     color: red;
@@ -29,5 +30,12 @@ h1 {
     position: fixed;
     bottom: 50px;
     left: 50%;
-    z-index: 999999999999999999999999999999;
+    z-index: 4;
+}
+.mycontrol {
+    height: 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
 }
