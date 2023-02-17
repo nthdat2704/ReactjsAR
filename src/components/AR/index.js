@@ -19,8 +19,8 @@ const AR = ({ handleTakePhoto }) => {
   const refScale = useRef();
   const refRotation = useRef();
   const [myControl, setMyControl] = useState({
-    lat: "10.766216489778198",
-    long: "106.68538670984164",
+    lat: "10.792118",
+    long: "106.656346",
     position: "0 0 -10",
     toposition: "0 3 -10",
     scale: "1 1 1",
@@ -163,20 +163,9 @@ const AR = ({ handleTakePhoto }) => {
             <h1 onClick={handleClickMe}>kakakkakakakak</h1>
           </a-sphere>
         </a-entity>
-        <a-entity
-          id="menu"
-          htmlembed="ppu:60"
-          position="-3 2.5 -4.476"
-          rotation="0 45 0"
-          look-at="[gps-camera]"
-          gps-entity-place="latitude: 10.791667440353601; longitude: 106.65613501332702;"
-          arjs="sourceType: webcam; debugUIEnabled: false;"
-        >
-          <h1 onClick={handleClickMe}>day ne quan nc</h1>
-        </a-entity>
         <a-camera
           // gps-camera
-          gps-camera={`simulateLatitude: ${myControl.lat}; simulateLongitude: ${myControl.long}; maxDistance: 15;`}
+          gps-camera={`simulateLatitude: ${myLocation.lat}; simulateLongitude: ${myLocation.long}; maxDistance: 15;`}
           rotation-reader
         ></a-camera>
       </a-scene>
