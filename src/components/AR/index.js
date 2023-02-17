@@ -162,7 +162,7 @@ const AR = ({ handleTakePhoto }) => {
             look-at="[gps-camera]"
             color="#EF2D5E"
             arjs="sourceType: webcam; debugUIEnabled: false;"
-            onClick={handleClickMe}
+            onTouchStart={handleClickMe}
           >
           </a-sphere>
         <a-camera
