@@ -104,7 +104,7 @@ const AR = ({ handleTakePhoto }) => {
           rotation="0 45 0"
           look-at="[gps-camera]"
           gps-entity-place="latitude: 10.791667440353601; longitude: 106.65613501332702;"
-          arjs="sourceType: webcam; debugUIEnabled: false;"
+          arjs="sourceType: webcam; debugUIEnabled: false;" 
         >
           <h1 onClick={handleClickMe}>day ne quan nc</h1>
         </a-entity>
