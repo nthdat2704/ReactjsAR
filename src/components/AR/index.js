@@ -22,7 +22,7 @@ const AR = ({ handleTakePhoto }) => {
     lat: "10.792118",
     long: "106.656346",
     position: "0 2 -10",
-    toposition: "0 2.1 -10",
+    toposition: "0 3 -10",
     scale: "1 1 1",
     rotation: "0 0 0",
   });
@@ -155,7 +155,7 @@ const AR = ({ handleTakePhoto }) => {
       >
           <a-sphere
             position={myControl.position}
-            radius="0.5"
+            radius="3"
             scale={myControl.scale}
             rotation={myControl.rotation}
             gps-entity-place={`latitude: ${myControl.lat}; longitude: ${myControl.long};`}
