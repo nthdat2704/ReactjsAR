@@ -41,6 +41,10 @@ const AR = ({ handleTakePhoto }) => {
     var d = R * c;
     return d * 1000;
   }
+  const handleClickMe = () => {
+    alert("clicked ...")
+
+  }
 
   // console.log("sss", myLocation);
   // console.log('distance', metter);
