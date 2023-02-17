@@ -21,8 +21,8 @@ const AR = ({ handleTakePhoto }) => {
   const [myControl, setMyControl] = useState({
     lat: "10.792118",
     long: "106.656346",
-    position: "0 0 -10",
-    toposition: "0 3 -10",
+    position: "0 2 -10",
+    toposition: "0 2.1 -10",
     scale: "1 1 1",
     rotation: "0 0 0",
   });
@@ -153,7 +153,6 @@ const AR = ({ handleTakePhoto }) => {
         embedded
         arjs="sourceType: webcam; debugUIEnabled: false;"
       >
-        <a-entity>
           <a-sphere
             position={myControl.position}
             radius="0.5"
@@ -163,10 +162,9 @@ const AR = ({ handleTakePhoto }) => {
             look-at="[gps-camera]"
             color="#EF2D5E"
             arjs="sourceType: webcam; debugUIEnabled: false;"
+            onClick={handleClickMe}
           >
-            <h1 onClick={handleClickMe}>kakakkakakakak</h1>
           </a-sphere>
-        </a-entity>
         <a-camera
           // gps-camera
           gps-camera={`simulateLatitude: ${myLocation.lat}; simulateLongitude: ${myLocation.long}; maxDistance: 15;`}
